@@ -13,15 +13,24 @@ class WeatherService {
     
     static let shared = WeatherService()
     
-    func fetchData(_ url: String, completion: @escaping (Data?, Error?) -> Void) {
+    func fetchData<T: Codable>(_ url: String, completion: @escaping (T?, Error?) -> Void) {
         guard let request = URL(string: url) else {
             return
         }
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error { completion(nil, error) }
-            else { completion(data, nil) }
+            if let error = error {
+                completion(nil, error)
+                return
+            }
             
-        }
+            do {
+                let results = try JSONDecoder().decode(T.self, from: data!)
+                completion(results, nil)
+            } catch {
+                completion(nil, error)
+            }
+            
+        }.resume()
     }
 }
