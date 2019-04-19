@@ -12,12 +12,14 @@ class WeatherListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        WeatherService.shared.fetchData(lat: 0, lon: 0, type: .daily) { (results: DailyWeather?, error) in
-            
-        }
         
-        WeatherService.shared.fetchData(lat: 0, lon: 0, type: .current) { (results: CurrentWeather?, error) in
+        WeatherService.shared.fetchData(lat: 0, lon: 0, type: .current) { (weather: CurrentWeather?, error) in
+            if let errorMsg = error?.localizedDescription {
+                self.showAlert(title: "Error!", msg: errorMsg )
+                return
+            }
+            guard let weather = weather else { return }
+            print(weather)
             
         }
 
