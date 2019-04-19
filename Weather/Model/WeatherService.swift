@@ -12,7 +12,7 @@ class WeatherService {
     
     static let shared = WeatherService()
     
-    static let baseURL = "api.openweathermap.org/data/2.5/%@?lat=%f&lon=%f&APPID=%@"
+    static let baseURL = "https://api.openweathermap.org/data/2.5/%@?lat=%f&lon=%f&APPID=%@"
     
     static func url(_ lat: Double, _ lon: Double, type: ForecastType) -> URL? {
         let url = String(format: baseURL, type.rawValue, lat, lon, APIKeys.weather)
