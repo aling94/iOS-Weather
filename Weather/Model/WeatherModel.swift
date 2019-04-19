@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Main Weather Models
+
 struct CurrentWeather: Codable {
     let info: [Info]
     let temp: Temp
@@ -26,43 +28,42 @@ struct CurrentWeather: Codable {
     }
 }
 
-struct DailyWeather {
+struct DailyWeather: Codable {
     
-    struct Contents: Codable {
-        let count: Int
-        let forecasts: [Forecast]
-        let city: City
-        
-        enum CodingKeys: String, CodingKey {
-            case count = "cnt"
-            case forecasts = "list"
-            case city
-        }
-    }
+    let count: Int
+    let forecasts: [Forecast]
+    let city: City
     
-    struct City: Codable {
-        let id: Int
-        let name: String
-        let country: String
-    }
-
-    struct Forecast: Codable {
-        let time: Int
-        let temp: Temp
-        let info: [Info]
-        let wind: Wind
-        let date: String
-        
-        enum CodingKeys: String, CodingKey {
-            case time = "dt"
-            case temp = "main"
-            case info = "weather"
-            case wind
-            case date = "dt_txt"
-        }
+    enum CodingKeys: String, CodingKey {
+        case count = "cnt"
+        case forecasts = "list"
+        case city
     }
 }
 
+// MARK: - Weather Info Structs
+
+struct City: Codable {
+    let id: Int
+    let name: String
+    let country: String
+}
+
+struct Forecast: Codable {
+    let time: Int
+    let temp: Temp
+    let info: [Info]
+    let wind: Wind
+    let date: String
+    
+    enum CodingKeys: String, CodingKey {
+        case time = "dt"
+        case temp = "main"
+        case info = "weather"
+        case wind
+        case date = "dt_txt"
+    }
+}
 
 struct Info: Codable {
     let state: String
