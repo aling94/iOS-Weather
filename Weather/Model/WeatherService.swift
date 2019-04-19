@@ -12,10 +12,10 @@ class WeatherService {
     
     static let shared = WeatherService()
     
-    static let baseURL = "api.openweathermap.org/data/2.5/%@?lat=%f&lon=%f"
+    static let baseURL = "api.openweathermap.org/data/2.5/%@?lat=%f&lon=%f&APPID=%@"
     
     static func url(_ lat: Double, _ lon: Double, type: ForecastType) -> URL? {
-        let url = String(format: baseURL, type.rawValue, lat, lon)
+        let url = String(format: baseURL, type.rawValue, lat, lon, APIKeys.weather)
         return URL(string: url)
     }
     
@@ -28,6 +28,7 @@ class WeatherService {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(nil, error)
+                if let response = response { print(response) }
                 return
             }
             
