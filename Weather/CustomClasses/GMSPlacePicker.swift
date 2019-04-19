@@ -21,7 +21,7 @@ class GMSPlacePicker: GMSAutocompleteViewController, GMSAutocompleteViewControll
         
         placeFields = GMSPlaceField(rawValue: settingVal)!
         let filter = GMSAutocompleteFilter()
-        filter.type = .noFilter
+        filter.type = .city
         autocompleteFilter = filter
     }
     
