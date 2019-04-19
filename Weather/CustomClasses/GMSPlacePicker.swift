@@ -15,7 +15,11 @@ class GMSPlacePicker: GMSAutocompleteViewController, GMSAutocompleteViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        placeFields = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) | UInt(GMSPlaceField.coordinate.rawValue))!
+        
+        let fields: [GMSPlaceField] = [.name, .coordinate, .placeID]
+        let settingVal = fields.reduce(0, { $0 | UInt($1.rawValue) } )
+        
+        placeFields = GMSPlaceField(rawValue: settingVal)!
         let filter = GMSAutocompleteFilter()
         filter.type = .noFilter
         autocompleteFilter = filter
