@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1013CAA2269706F00E4D417 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1013CA92269706F00E4D417 /* Keys.swift */; };
 		E1684E602269160F00A96B78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1684E5F2269160F00A96B78 /* AppDelegate.swift */; };
 		E1684E652269160F00A96B78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1684E632269160F00A96B78 /* Main.storyboard */; };
 		E1684E672269161000A96B78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1684E662269161000A96B78 /* Assets.xcassets */; };
 		E1684E6A2269161000A96B78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1684E682269161000A96B78 /* LaunchScreen.storyboard */; };
 		E1684E77226916E800A96B78 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1684E76226916E800A96B78 /* WeatherService.swift */; };
-		E1684E7E2269179100A96B78 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1684E7D2269179100A96B78 /* Keys.swift */; };
 		E1684E8222691CC900A96B78 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1684E8122691CC900A96B78 /* WeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E1013CA92269706F00E4D417 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		E1684E5C2269160F00A96B78 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1684E5F2269160F00A96B78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1684E642269160F00A96B78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -24,7 +25,6 @@
 		E1684E692269161000A96B78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1684E6B2269161000A96B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1684E76226916E800A96B78 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
-		E1684E7D2269179100A96B78 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		E1684E8122691CC900A96B78 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E1013CA82269706300E4D417 /* APIKeys */ = {
+			isa = PBXGroup;
+			children = (
+				E1013CA92269706F00E4D417 /* Keys.swift */,
+			);
+			path = APIKeys;
+			sourceTree = "<group>";
+		};
 		E1684E532269160F00A96B78 = {
 			isa = PBXGroup;
 			children = (
@@ -111,19 +119,11 @@
 		E1684E792269170800A96B78 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				E1684E7C2269178700A96B78 /* APIKeys */,
-				E1684E662269161000A96B78 /* Assets.xcassets */,
 				E1684E6B2269161000A96B78 /* Info.plist */,
+				E1013CA82269706300E4D417 /* APIKeys */,
+				E1684E662269161000A96B78 /* Assets.xcassets */,
 			);
 			path = Support;
-			sourceTree = "<group>";
-		};
-		E1684E7C2269178700A96B78 /* APIKeys */ = {
-			isa = PBXGroup;
-			children = (
-				E1684E7D2269179100A96B78 /* Keys.swift */,
-			);
-			path = APIKeys;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,7 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1684E77226916E800A96B78 /* WeatherService.swift in Sources */,
-				E1684E7E2269179100A96B78 /* Keys.swift in Sources */,
+				E1013CAA2269706F00E4D417 /* Keys.swift in Sources */,
 				E1684E602269160F00A96B78 /* AppDelegate.swift in Sources */,
 				E1684E8222691CC900A96B78 /* WeatherModel.swift in Sources */,
 			);
@@ -348,7 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_FILE = Weather/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -368,7 +368,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Weather/Info.plist;
+				INFOPLIST_FILE = Weather/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

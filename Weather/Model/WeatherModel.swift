@@ -34,9 +34,9 @@ struct DailyWeather {
         let city: City
         
         enum CodingKeys: String, CodingKey {
+            case count = "cnt"
             case forecasts = "list"
             case city
-            case count = "cnt"
         }
     }
     
@@ -55,10 +55,10 @@ struct DailyWeather {
         
         enum CodingKeys: String, CodingKey {
             case time = "dt"
+            case temp = "main"
             case info = "weather"
             case wind
             case date = "dt_txt"
-            case temp = "main"
         }
     }
 }
@@ -70,8 +70,9 @@ struct Info: Codable {
     let icon: String
     
     enum CodingKeys: String, CodingKey {
-        case description, icon
+        
         case state = "main"
+        case description, icon
     }
 }
 
