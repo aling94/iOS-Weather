@@ -10,15 +10,26 @@ import UIKit
 
 class WeatherCell: UITableViewCell {
 
+    @IBOutlet weak var container: UIView!
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var hiTemp: UILabel!
+    @IBOutlet weak var loTemp: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        container.setGradientBackground()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func set(weatherData: CurrentWeather) {
+        cityLabel.text = weatherData.city
+        let temp = weatherData.temp
+        hiTemp.text = "\(temp.max)"
+        loTemp.text = "\(temp.min)"
     }
 
 }
