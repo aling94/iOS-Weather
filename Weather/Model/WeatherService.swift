@@ -9,12 +9,19 @@
 import Foundation
 
 class WeatherService {
-    private init() {}
     
     static let shared = WeatherService()
     
-    func fetchData<T: Codable>(_ url: String, completion: @escaping (T?, Error?) -> Void) {
-        guard let request = URL(string: url) else {
+    static let baseURL = "api.openweathermap.org/data/2.5/%@?lat=%f&lon=%f"
+    
+    static func url(_ lat: Double, _ lon: Double, type: ForecastType) -> URL? {
+        let url = String(format: baseURL, type.rawValue, lat, lon)
+        return URL(string: url)
+    }
+    
+    func fetchData<T: Codable>(lat: Double, lon: Double, type: ForecastType, completion: @escaping (T?, Error?) -> Void) {
+        guard let request = WeatherService.url(lat, lon, type: type) else {
+            completion(nil, ServiceError.invalidURL)
             return
         }
         
@@ -33,4 +40,14 @@ class WeatherService {
             
         }.resume()
     }
+}
+
+enum ForecastType: String {
+    case current = "weather"
+    case daily = "forecast"
+}
+
+enum ServiceError: String, Error {
+    case invalidURL = "URL is invalid"
+    case parseFailed = "Failed to parse data"
 }
