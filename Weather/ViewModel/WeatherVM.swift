@@ -30,7 +30,7 @@ class WeatherVM {
             if let results = results {
                 self.data.append(results)
                 self.cityIDs.append(results.cityID)
-                app.saveCity(cityID: results.cityID)
+                UserDefaults.standard.set(self.cityIDs, forKey: "cities")
                 completion(nil)
             } else { completion(error) }
         }
