@@ -7,17 +7,39 @@
 //
 
 import UIKit
-
 class WeatherListVC: UIViewController {
 
     @IBOutlet weak var table: UITableView!
     
     let weatherVM = WeatherVM(WeatherService.shared)
+    let placePicker = GMSPlacePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        table.tableFooterView = UIView()
+        
+        placePicker.selectPlaceAction = { [unowned self] place in
+            let loc = place.coordinate
+            print(loc)
+            self.addCity(loc.latitude, loc.longitude)
+        }
     }
-
+    
+    func addCity(_ lat: Double, _ lon: Double) {
+        self.weatherVM.fetchData(lat, lon) { (error) in
+            if let error = error?.localizedDescription {
+                self.showAlert(title: "Error", msg: error)
+                return
+            }
+            DispatchQueue.main.async {
+                self.table.appendToEnd(section: 0)
+            }
+        }
+    }
+    
+    @IBAction func addCityClicked(sender: UIButton) {
+        present(placePicker, animated: true)
+    }
 
 }
 
