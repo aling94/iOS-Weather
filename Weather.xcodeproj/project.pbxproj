@@ -62,7 +62,6 @@
 				7B09C5C8ACD6423E2ABE7A30 /* Pods-Weather.debug.xcconfig */,
 				1FDB3C5C1B98D5D49D3192D6 /* Pods-Weather.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -465,7 +464,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = iOSPlayground.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSPlayground.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -486,7 +485,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = iOSPlayground.Weather;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOSPlayground.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
