@@ -21,6 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSPlacesClient.provideAPIKey(APIKeys.google)
         return true
     }
-
+    
+    func getUsersCities() -> [Int] {
+        return UserDefaults.standard.value(forKey: "cities") as? [Int] ?? []
+    }
+    
+    func saveCity(cityID: Int) {
+        var cityList = getUsersCities()
+        cityList.append(cityID)
+        UserDefaults.standard.set(cityList, forKey: "cities")
+    }
 }
 
+let app = UIApplication.shared.delegate as! AppDelegate
