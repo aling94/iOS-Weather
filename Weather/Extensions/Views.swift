@@ -55,3 +55,12 @@ extension UIColor {
     }
 }
 
+extension UITableView {
+    
+    func appendToEnd(section: Int) {
+        let lastRow = numberOfRows(inSection: section)
+        beginUpdates()
+        insertRows(at: [IndexPath(row: lastRow, section: section)], with: .right)
+        endUpdates()
+    }
+}
