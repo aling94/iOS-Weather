@@ -17,12 +17,20 @@ class WeatherListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         table.tableFooterView = UIView()
-        
+        setupPlacePicker()
+        loadSavedCities()
+    }
+    
+    func setupPlacePicker() {
         placePicker.selectPlaceAction = { [unowned self] place in
             let loc = place.coordinate
             print(loc)
             self.addCity(loc.latitude, loc.longitude)
         }
+    }
+    
+    func loadSavedCities() {
+        
     }
     
     func addCity(_ lat: Double, _ lon: Double) {
