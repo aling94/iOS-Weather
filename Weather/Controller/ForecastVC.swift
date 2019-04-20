@@ -20,6 +20,7 @@ class ForecastVC: UIViewController {
         super.viewDidLoad()
         currWeather.set(forecastVM.current)
         loadForecasts()
+        setupGestures()
     }
     
     func loadForecasts() {
@@ -34,5 +35,10 @@ class ForecastVC: UIViewController {
                 self.tmrwWeather.set(self.forecastVM.weather(at: 1))
             }
         }
+    }
+    
+    func setupGestures() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: nil)
+        view.addGestureRecognizer(panGesture)
     }
 }
