@@ -12,18 +12,25 @@ class WeatherService {
     
     static let shared = WeatherService()
     
-    static let baseURL = "https://api.openweathermap.org/data/2.5/%@?lat=%f&lon=%f&units=metric&APPID=%@"
-    static let batchURL = "https://api.openweathermap.org/data/2.5/group?id=%@&units=metric&APPID=%@"
+    static let baseURL = "https://api.openweathermap.org/data/2.5/"
+    static let coordReq = "%@?lat=%f&lon=%f&units=metric&APPID=%@"
+    static let cityIDReq = "%@?id=%@&units=metric&APPID=%@"
+    static let batchReq = "group?id=%@&units=metric&APPID=%@"
     
     static func url(_ lat: Double, _ lon: Double, type: ForecastType) -> URL? {
-        let url = String(format: baseURL, type.rawValue, lat, lon, APIKeys.weather)
-        return URL(string: url)
+        let params = String(format: coordReq, type.rawValue, lat, lon, APIKeys.weather)
+        return URL(string: baseURL + params)
+    }
+    
+    static func url(_ cityID: Int, type: ForecastType) -> URL? {
+        let params = String(format: cityIDReq, type.rawValue, cityID, APIKeys.weather)
+        return URL(string: baseURL + params)
     }
     
     static func url(_ cityIDs: [Int]) -> URL? {
         let ids = cityIDs.map( {"\($0)"} ).joined(separator: ",")
-        let url = String(format: batchURL, ids, APIKeys.weather)
-        return URL(string: url)
+        let params = String(format: batchReq, ids, APIKeys.weather)
+        return URL(string: baseURL + params)
     }
     
     // Helper to send request to API
@@ -49,6 +56,13 @@ class WeatherService {
         } else { completion(nil, ServiceError.invalidURL) }
     }
     
+    // Fetch current or daily weather for a specific coordinate
+    func fetchData<T: Codable>(cityID: Int, type: ForecastType, completion: @escaping (T?, Error?) -> Void) {
+        if let request = WeatherService.url(cityID, type: type) {
+            callAPI(request, completion: completion)
+        } else { completion(nil, ServiceError.invalidURL) }
+    }
+    
     // Fetch multiple the current weather for multiple cities
     func fetchData(cityIDs: [Int], completion: @escaping (WeatherList?, Error?) -> Void) {
         if let request = WeatherService.url(cityIDs) {
@@ -65,4 +79,5 @@ enum ForecastType: String {
 enum ServiceError: String, Error {
     case invalidURL = "URL is invalid"
     case parseFailed = "Failed to parse data"
+    case alreadyAdded = "You have already added this location"
 }

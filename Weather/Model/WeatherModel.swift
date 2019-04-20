@@ -49,6 +49,10 @@ struct DailyWeather: Codable {
         case forecasts = "list"
         case city
     }
+    
+    subscript(index: Int) -> Forecast {
+        return forecasts[index]
+    }
 }
 
 // MARK: - Weather Info Structs
