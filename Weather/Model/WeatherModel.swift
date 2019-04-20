@@ -28,6 +28,16 @@ struct CurrentWeather: Codable {
     }
 }
 
+struct WeatherList: Codable {
+    let cities: [CurrentWeather]
+    let count: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case count = "cnt"
+        case cities = "list"
+    }
+}
+
 struct DailyWeather: Codable {
     
     let count: Int
