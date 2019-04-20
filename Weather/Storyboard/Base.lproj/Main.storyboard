@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oBD-zE-cSh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oBD-zE-cSh">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="181"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3pG-xA-QbL" id="r4H-0I-1o6">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="180.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="181"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5w-cp-psG" userLabel="Wrapper">
@@ -85,6 +85,7 @@
                                             <outlet property="hiTemp" destination="UqO-3P-vK2" id="W8s-Jq-DmP"/>
                                             <outlet property="icon" destination="RPn-X4-WbU" id="ZKE-8g-H4F"/>
                                             <outlet property="loTemp" destination="ehX-Sp-dKd" id="WBo-xG-vZS"/>
+                                            <segue destination="cBB-6L-nzN" kind="show" id="Ctw-fu-6v6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -133,6 +134,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1039.1304347826087" y="132.88043478260872"/>
+        </scene>
+        <!--ForecastVC-->
+        <scene sceneID="REd-Rj-GWt">
+            <objects>
+                <viewController storyboardIdentifier="ForecastVC" id="cBB-6L-nzN" customClass="ForecastVC" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UIX-wM-X0j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tZy-uL-Hh0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="27 C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Er-pH-DDE" userLabel="City Name">
+                                <rect key="frame" x="46" y="250" width="152" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="80"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tZy-uL-Hh0" firstAttribute="leading" secondItem="CE2-2l-5ZL" secondAttribute="leading" id="2dQ-r2-b1W"/>
+                            <constraint firstAttribute="bottom" secondItem="tZy-uL-Hh0" secondAttribute="bottom" id="4hS-aS-UyD"/>
+                            <constraint firstItem="tZy-uL-Hh0" firstAttribute="top" secondItem="UIX-wM-X0j" secondAttribute="top" id="b2s-U6-26c"/>
+                            <constraint firstItem="CE2-2l-5ZL" firstAttribute="trailing" secondItem="tZy-uL-Hh0" secondAttribute="trailing" id="boe-B7-iOV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CE2-2l-5ZL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4gn-yd-A26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eIv-Ud-t9Z">
