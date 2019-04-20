@@ -27,9 +27,8 @@ class WeatherCell: UITableViewCell {
     
     func set(weatherData: CurrentWeather) {
         cityLabel.text = weatherData.city
-        let temp = weatherData.temp
-        hiTemp.text = "\(temp.max)"
-        loTemp.text = "\(temp.min)"
+        hiTemp.text = weatherData.temp.high
+        loTemp.text = weatherData.temp.low
     }
 
 }

@@ -93,6 +93,23 @@ struct Info: Codable {
 
 struct Temp: Codable {
     let curr, min, max: Double
+    var metric: Bool! = true
+    
+    var current: String {
+        return metric ? "\(curr)° C" : "\(curr.fahrenheit)° F"
+    }
+    
+    var high: String {
+        return metric ? "\(max)° C" : "\(max.fahrenheit)° F"
+    }
+    
+    var low: String {
+        return metric ? "\(min)° C" : "\(min.fahrenheit)° F"
+    }
+    
+    var highLow: String {
+        return metric ? "\(max)/\(min)° C" : "\(max.fahrenheit)/\(min.fahrenheit)° F"
+    }
     
     enum CodingKeys: String, CodingKey {
         case curr = "temp"
@@ -103,4 +120,9 @@ struct Temp: Codable {
 
 struct Wind: Codable {
     let speed, deg: Double
+    var metric: Bool! = true
+    
+    var spd: String {
+        return metric ? "\(speed)° m/s" : "\(speed.mph)° mph"
+    }
 }
