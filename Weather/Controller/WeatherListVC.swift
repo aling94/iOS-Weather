@@ -45,7 +45,7 @@ class WeatherListVC: UIViewController {
         }
     }
     
-    @IBAction func addCityClicked(sender: UIButton) {
+    @IBAction func addCityClicked(sender: Any) {
         present(placePicker, animated: true)
     }
 

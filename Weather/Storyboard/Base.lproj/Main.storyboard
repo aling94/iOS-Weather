@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oBD-zE-cSh">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="181" id="3pG-xA-QbL" customClass="WeatherCell" customModule="Weather" customModuleProvider="target">
@@ -46,7 +46,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25 C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehX-Sp-dKd" userLabel="low">
-                                                            <rect key="frame" x="119.66666666666667" y="99.666666666666671" width="33.666666666666671" height="21.666666666666671"/>
+                                                            <rect key="frame" x="119.66666666666667" y="99.666666666666657" width="33.666666666666671" height="21.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -94,25 +94,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="sHe-c5-Wv3"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIZ-A5-fAf">
-                                <rect key="frame" x="132" y="348" width="150" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.68731337748028376" blue="0.15590758617986589" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="e9J-9O-ziY"/>
-                                    <constraint firstAttribute="width" constant="150" id="pAv-3n-J3I"/>
-                                </constraints>
-                                <state key="normal" title="Add a location">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="addCityClickedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TMF-8M-EB3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -120,13 +101,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oBD-zE-cSh" secondAttribute="bottom" id="B6B-mW-VqX"/>
                             <constraint firstItem="oBD-zE-cSh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IDF-kK-Djw"/>
                             <constraint firstItem="oBD-zE-cSh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="btr-qH-2be"/>
-                            <constraint firstItem="OIZ-A5-fAf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yBx-eR-UPx"/>
-                            <constraint firstItem="OIZ-A5-fAf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yDc-yI-hux"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zye-Fe-Lat"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="zye-Fe-Lat">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="o1y-W2-fEP">
+                            <connections>
+                                <action selector="addCityClickedWithSender:" destination="BYZ-38-t0r" id="QRN-eZ-G4W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="table" destination="oBD-zE-cSh" id="UOA-XW-pi8"/>
                     </connections>
