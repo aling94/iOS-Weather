@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForecastCardVC" customModule="Weather" customModuleProvider="target">
             <connections>
+                <outlet property="collection" destination="S4b-Dj-A6W" id="Mq6-0O-TlN"/>
+                <outlet property="content" destination="UF6-ta-wYZ" id="hOw-qG-W27"/>
                 <outlet property="handle" destination="lk0-bo-YD7" id="AXi-Bs-96r"/>
                 <outlet property="tmrwInfo" destination="6Ew-wP-V2v" id="jFw-gp-yxW"/>
                 <outlet property="todayInfo" destination="0Xt-5y-iOc" id="vT2-6v-QGD"/>
@@ -148,8 +150,33 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UF6-ta-wYZ" userLabel="Content">
-                    <rect key="frame" x="0.0" y="176" width="375" height="491"/>
+                    <rect key="frame" x="0.0" y="176" width="375" height="260"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-Dj-A6W">
+                            <rect key="frame" x="0.0" y="30" width="375" height="210"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="210" id="KB2-Yk-SaU"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qbu-7Y-qqK">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="cGb-Xv-zLh"/>
+                                <outlet property="delegate" destination="-1" id="kca-6P-Wl3"/>
+                            </connections>
+                        </collectionView>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="S4b-Dj-A6W" secondAttribute="bottom" constant="20" id="1qV-an-KYx"/>
+                        <constraint firstItem="S4b-Dj-A6W" firstAttribute="leading" secondItem="UF6-ta-wYZ" secondAttribute="leading" id="2xn-HH-V0l"/>
+                        <constraint firstItem="S4b-Dj-A6W" firstAttribute="top" secondItem="UF6-ta-wYZ" secondAttribute="top" constant="30" id="m36-UY-45N"/>
+                        <constraint firstAttribute="trailing" secondItem="S4b-Dj-A6W" secondAttribute="trailing" id="pBc-1f-Tbl"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -157,7 +184,6 @@
                 <constraint firstItem="lk0-bo-YD7" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="1lV-2I-Nv7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UF6-ta-wYZ" secondAttribute="trailing" id="3ID-KD-8G8"/>
                 <constraint firstItem="lk0-bo-YD7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MO6-mO-qzQ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UF6-ta-wYZ" secondAttribute="bottom" id="MgK-oD-zUx"/>
                 <constraint firstItem="UF6-ta-wYZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uQN-8W-Rde"/>
                 <constraint firstItem="lk0-bo-YD7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yac-UU-N4u"/>
                 <constraint firstItem="UF6-ta-wYZ" firstAttribute="top" secondItem="lk0-bo-YD7" secondAttribute="bottom" id="yeR-Va-rNV"/>
