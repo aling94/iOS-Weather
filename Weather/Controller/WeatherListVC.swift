@@ -54,6 +54,13 @@ class WeatherListVC: UIViewController {
     @IBAction func addCityClicked(sender: Any) {
         present(placePicker, animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? ForecastVC,
+            let selected = table.indexPathForSelectedRow else { return }
+        let current = weatherVM.weather(at: selected)
+        vc.forecastVM = ForecastVM(WeatherService.shared, current: current)
+    }
 
 }
 
@@ -68,7 +75,7 @@ extension WeatherListVC: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         let data = weatherVM.weather(at: indexPath)
-        cell.set(weatherData: data)
+        cell.set(data)
         return cell
     }
 }
