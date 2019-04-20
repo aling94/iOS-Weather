@@ -15,12 +15,17 @@ class ForecastVC: UIViewController {
     @IBOutlet weak var tmrwWeather: WeatherInfoView!
     
     var forecastVM: ForecastVM!
+    var forecastCard: ForecastCardVC!
+    var handleHgt: CGFloat = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
         currWeather.set(forecastVM.current)
+        setupCard()
         loadForecasts()
-        setupGestures()
+        
+//        setupGestures()
     }
     
     func loadForecasts() {
@@ -33,12 +38,33 @@ class ForecastVC: UIViewController {
             DispatchQueue.main.async {
                 self.todayWeather.set(self.forecastVM.weather(at: 0))
                 self.tmrwWeather.set(self.forecastVM.weather(at: 1))
+                self.forecastCard.forecastVM = self.forecastVM
             }
         }
     }
     
+    func setupCard() {
+        forecastCard = ForecastCardVC(nibName: "ForecastCardVC", bundle: nil)
+        addChild(forecastCard)
+        view.addSubview(forecastCard.view)
+        handleHgt = forecastCard.handle.frame.height
+        forecastCard.view.frame = CGRect(x: 0, y: view.frame.height - handleHgt, width: view.frame.width, height: 600)
+        forecastCard.view.clipsToBounds = true
+    }
+    
     func setupGestures() {
-        let panGesture = UIPanGestureRecognizer(target: self, action: nil)
-        view.addGestureRecognizer(panGesture)
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        
+        forecastCard.handle.addGestureRecognizer(pan)
+        forecastCard.handle.addGestureRecognizer(tap)
+    }
+    
+    @objc func handlePan(recognizer: UIPanGestureRecognizer) {
+        
+    }
+    
+    @objc func handleTap(recognizer: UITapGestureRecognizer) {
+        
     }
 }
