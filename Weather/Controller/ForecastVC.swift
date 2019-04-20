@@ -16,9 +16,10 @@ class ForecastVC: UIViewController {
     
     var forecastVM: ForecastVM!
     var forecastCard: ForecastCardVC!
-    var handleHgt: CGFloat = 0
-    var cardHgt: CGFloat = 600
     
+    // Card animation variables
+    var handleHgt: CGFloat = 0
+    var cardHgt: CGFloat = 0
     var animations: [UIViewPropertyAnimator] = []
     var animationProgress: CGFloat = 0
     var cardExpanded = false
@@ -29,7 +30,6 @@ class ForecastVC: UIViewController {
         currWeather.set(forecastVM.current)
         setupCard()
         loadForecasts()
-        
         setupGestures()
     }
     
@@ -50,6 +50,7 @@ class ForecastVC: UIViewController {
         addChild(forecastCard)
         view.addSubview(forecastCard.view)
         handleHgt = forecastCard.handle.frame.height
+        cardHgt = forecastCard.height
         forecastCard.view.frame = CGRect(x: 0, y: view.frame.height - handleHgt, width: view.frame.width, height: cardHgt)
         forecastCard.view.layer.cornerRadius = 8
         forecastCard.view.clipsToBounds = true
