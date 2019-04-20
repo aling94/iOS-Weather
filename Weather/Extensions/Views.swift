@@ -9,15 +9,19 @@
 import UIKit
 
 extension UIView {
+
+    func setGradientBackground(_ startColor: Int, _ endColor: Int) {
+        setGradientBackground(UIColor(rgb: startColor), UIColor(rgb: endColor))
+    }
     
-    func setGradientBackground() {
-        backgroundColor = .clear
+    func setGradientBackground(_ startColor: UIColor, _ endColor: UIColor = .white) {
+        backgroundColor = .white
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
-        gradientLayer.colors = [UIColor.random.cgColor, UIColor.white.cgColor]
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
         gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.startPoint = CGPoint(x: 1.0, y: 1.0)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         layer.insertSublayer(gradientLayer, at: 0)
     }
     
@@ -47,11 +51,17 @@ extension UIView {
 }
 
 extension UIColor {
-    static var random: UIColor {
-        return UIColor(red: .random(in: 0...1),
-                       green: .random(in: 0...1),
-                       blue: .random(in: 0...1),
-                       alpha: 0.5)
+    
+    convenience init(red: Int, green: Int, blue: Int) {
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
     }
 }
 
