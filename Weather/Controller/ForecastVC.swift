@@ -9,22 +9,30 @@
 import UIKit
 
 class ForecastVC: UIViewController {
+    
+    @IBOutlet weak var currWeather: WeatherInfoView!
+    @IBOutlet weak var todayWeather: WeatherInfoView!
+    @IBOutlet weak var tmrwWeather: WeatherInfoView!
+    
+    var forecastVM: ForecastVM!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        currWeather.set(forecastVM.current)
+        loadForecasts()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func loadForecasts() {
+        forecastVM.fetchForecasts { (error) in
+            if let error = error?.localizedDescription {
+                self.showAlert(title: "Error", msg: error)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.todayWeather.set(self.forecastVM.weather(at: 0))
+                self.tmrwWeather.set(self.forecastVM.weather(at: 1))
+            }
+        }
     }
-    */
-
 }

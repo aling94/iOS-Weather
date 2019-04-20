@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oBD-zE-cSh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oBD-zE-cSh">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -316,6 +316,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CE2-2l-5ZL"/>
                     </view>
+                    <connections>
+                        <outlet property="currWeather" destination="6th-SB-f5o" id="xaO-d2-Kmj"/>
+                        <outlet property="tmrwWeather" destination="bSV-zO-OEh" id="ism-rw-77C"/>
+                        <outlet property="todayWeather" destination="JDe-hV-Qjb" id="jOD-Dc-usG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gn-yd-A26" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
