@@ -19,6 +19,7 @@ class WeatherInfoView: UIView {
     
     func set(_ data: CurrentWeather) {
         temp?.text = data.temp.current
+        hiLow?.text = data.temp.highLow
         cityName?.text = data.city
         wind?.text = data.wind.spd
         guard let info = data.info.first else { return }
