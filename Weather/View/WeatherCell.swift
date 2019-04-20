@@ -25,10 +25,10 @@ class WeatherCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func set(weatherData: CurrentWeather) {
-        cityLabel.text = weatherData.city
-        hiTemp.text = weatherData.temp.high
-        loTemp.text = weatherData.temp.low
+    func set(_ data: CurrentWeather) {
+        cityLabel.text = data.city
+        hiTemp.text = data.temp.high
+        loTemp.text = data.temp.low
     }
 
 }

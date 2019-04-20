@@ -17,15 +17,15 @@ class WeatherInfoView: UIView {
     @IBOutlet weak var hiLow: UILabel!
     @IBOutlet weak var icon: UIImageView!
     
-    func set(weatherData: CurrentWeather) {
-        temp?.text = "\(weatherData.temp.curr)"
-        cityName?.text = weatherData.city
-        wind?.text = "\(weatherData.wind.speed) m/s"
-        guard let info = weatherData.info.first else { return }
+    func set(_ data: CurrentWeather) {
+        temp?.text = data.temp.current
+        cityName?.text = data.city
+        wind?.text = data.wind.spd
+        guard let info = data.info.first else { return }
         state?.text = info.state
     }
     
-    func set(weatherData: DailyWeather) {
-        
+    func set(_ data: Forecast) {
+        hiLow?.text = data.temp.highLow
     }
 }
