@@ -14,7 +14,7 @@ class WeatherService {
     
     static let baseURL = "https://api.openweathermap.org/data/2.5/"
     static let coordReq = "%@?lat=%f&lon=%f&units=metric&APPID=%@"
-    static let cityIDReq = "%@?id=%@&units=metric&APPID=%@"
+    static let cityIDReq = "%@?id=%d&units=metric&APPID=%@"
     static let batchReq = "group?id=%@&units=metric&APPID=%@"
     
     static func url(_ lat: Double, _ lon: Double, type: ForecastType) -> URL? {
