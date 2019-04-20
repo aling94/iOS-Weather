@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GooglePlaces
+
 class WeatherListVC: UIViewController {
 
     @IBOutlet weak var table: UITableView!
@@ -22,19 +24,23 @@ class WeatherListVC: UIViewController {
     }
     
     func setupPlacePicker() {
-        placePicker.selectPlaceAction = { [unowned self] place in
-            let loc = place.coordinate
-            print(loc)
-            self.addCity(loc.latitude, loc.longitude)
-        }
+        placePicker.selectPlaceAction = { [unowned self] in self.addCity($0) }
     }
     
     func loadSavedCities() {
-        
+        weatherVM.loadCities { (error) in
+            if let error = error?.localizedDescription {
+                self.showAlert(title: "Error", msg: error)
+                return
+            }
+            DispatchQueue.main.async {
+                self.table.reloadData()
+            }
+        }
     }
     
-    func addCity(_ lat: Double, _ lon: Double) {
-        self.weatherVM.fetchData(lat, lon) { (error) in
+    func addCity(_ place: GMSPlace) {
+        self.weatherVM.getCity(place) { (error) in
             if let error = error?.localizedDescription {
                 self.showAlert(title: "Error", msg: error)
                 return

@@ -12,8 +12,8 @@ class WeatherService {
     
     static let shared = WeatherService()
     
-    static let baseURL = "https://api.openweathermap.org/data/2.5/%@?lat=%f&lon=%f&APPID=%@"
-    static let batchURL = "https://api.openweathermap.org/data/2.5/%@?id=%@&APPID=%@"
+    static let baseURL = "https://api.openweathermap.org/data/2.5/%@?lat=%f&lon=%f&units=metric&APPID=%@"
+    static let batchURL = "https://api.openweathermap.org/data/2.5/group?id=%@&units=metric&APPID=%@"
     
     static func url(_ lat: Double, _ lon: Double, type: ForecastType) -> URL? {
         let url = String(format: baseURL, type.rawValue, lat, lon, APIKeys.weather)
@@ -22,7 +22,7 @@ class WeatherService {
     
     static func url(_ cityIDs: [Int]) -> URL? {
         let ids = cityIDs.map( {"\($0)"} ).joined(separator: ",")
-        let url = String(format: batchURL, ForecastType.current.rawValue, ids, APIKeys.weather)
+        let url = String(format: batchURL, ids, APIKeys.weather)
         return URL(string: url)
     }
     
