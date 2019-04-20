@@ -131,7 +131,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="726"/>
                                 <color key="backgroundColor" red="0.4626691376" green="0.48139204029999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbx-1c-txO" userLabel="Daily Wrapper">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbx-1c-txO" userLabel="Daily Wrapper">
                                 <rect key="frame" x="0.0" y="560" width="414" height="176"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDe-hV-Qjb" userLabel="Today Info" customClass="WeatherInfoView" customModule="Weather" customModuleProvider="target">
