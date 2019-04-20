@@ -28,5 +28,8 @@ class WeatherInfoView: UIView {
     
     func set(_ data: Forecast) {
         hiLow?.text = data.temp.highLow
+        if let iconName = data.info.first?.icon, let image = UIImage(named: iconName) {
+            icon.image = image
+        }
     }
 }

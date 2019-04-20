@@ -29,6 +29,8 @@ class WeatherCell: UITableViewCell {
         cityLabel.text = data.city
         hiTemp.text = data.temp.high
         loTemp.text = data.temp.low
+        if let iconName = data.info.first?.icon, let image = UIImage(named: iconName) {
+            icon.image = image
+        }
     }
-
 }
