@@ -18,6 +18,10 @@ struct CurrentWeather: Codable {
     let cityID: Int
     let city: String
     
+    var day: String? {
+        return formatWeekday(time: time)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case info = "weather"
         case temp = "main"
@@ -43,6 +47,31 @@ struct DailyWeather: Codable {
     let count: Int
     let forecasts: [Forecast]
     let city: City
+    var averages: [Forecast] = []
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        count = try container.decode(Int.self, forKey: .count)
+        city = try container.decode(City.self, forKey: .city)
+        forecasts = try container.decode([Forecast].self, forKey: .forecasts)
+        averages = (0...4).map({ getAvg(day: $0) })
+    }
+    
+    private func getAvg(day: Int) -> Forecast {
+        var avgTemp = 0.0, avgMin = 0.0, avgMax = 0.0
+        var avgWind = 0.0
+        for i in 0...7 {
+            let forecast = self[day, i]
+            avgTemp += forecast.temp.curr
+            avgMin += forecast.temp.min
+            avgMax += forecast.temp.max
+            avgWind += forecast.wind.speed
+        }
+        let temp = Temp(curr: avgTemp / 8.0, min: avgMin / 8.0, max: avgMax / 8.0)
+        let wind = Wind(speed: avgWind / 8.0)
+        let mid = self[day, 0]
+        return Forecast(time: mid.time, temp: temp, info: mid.info, wind: wind, date: mid.date)
+    }
     
     enum CodingKeys: String, CodingKey {
         case count = "cnt"
@@ -50,8 +79,12 @@ struct DailyWeather: Codable {
         case city
     }
     
-    subscript(index: Int) -> Forecast {
-        return forecasts[index]
+    subscript(day: Int) -> Forecast {
+        return averages[day]
+    }
+        
+    subscript(day: Int, interval: Int) -> Forecast {
+        return forecasts[day * 8 + interval]
     }
 }
 
@@ -69,6 +102,10 @@ struct Forecast: Codable {
     let info: [Info]
     let wind: Wind
     let date: String
+    
+    var day: String? {
+        return formatWeekday(time: time)
+    }
     
     enum CodingKeys: String, CodingKey {
         case time = "dt"
@@ -93,27 +130,26 @@ struct Info: Codable {
 
 struct Temp: Codable {
     let curr, min, max: Double
-    var metric: Bool! = true
     
     var current: String {
-        return String(format: "%.0f\(unit)", metric ? curr : curr.fahrenheit)
+        return String(format: "%.0f\(unit)", usingMetric ? curr : curr.fahrenheit)
     }
     
     var high: String {
-        return String(format: "%.0f\(unit)", metric ? max : max.fahrenheit)
+        return String(format: "%.0f\(unit)", usingMetric ? max : max.fahrenheit)
     }
     
     var low: String {
-        return String(format: "%.0f\(unit)", metric ? min : min.fahrenheit)
+        return String(format: "%.0f\(unit)", usingMetric ? min : min.fahrenheit)
     }
     
     var highLow: String {
-        return metric ? String(format: "%.0f/%.0f\(unit)", max, min) :
+        return usingMetric ? String(format: "%.0f/%.0f\(unit)", max, min) :
             String(format: "%.0f/%.0f\(unit)", max.fahrenheit, min.fahrenheit)
     }
     
     var unit: String {
-        return metric ? "° C" : "° F"
+        return usingMetric ? "° C" : "° F"
     }
     
     enum CodingKeys: String, CodingKey {
@@ -125,17 +161,27 @@ struct Temp: Codable {
 
 struct Wind: Codable {
     let speed: Double
-    var metric: Bool! = true
     
     var spd: String {
-        return String(format: "%.2f \(unit)", metric ? speed : speed.mph)
+        return String(format: "%.2f \(unit)", usingMetric ? speed : speed.mph)
     }
     
     var unit: String {
-        return metric ? "m/s" : "mph"
+        return usingMetric ? "m/s" : "mph"
     }
     
     enum CodingKeys: String, CodingKey {
         case speed
     }
+}
+
+
+fileprivate func formatWeekday(time : Int) -> String? {
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "en_US")
+    let interval = TimeInterval(exactly: time)!
+    let date = Date(timeIntervalSince1970: interval)
+    let dayIndex = Calendar.current.component(.weekday, from: date) - 1
+    let weekday = formatter.weekdaySymbols[dayIndex]
+    return weekday.capitalized
 }
