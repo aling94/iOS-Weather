@@ -57,35 +57,38 @@ class ForecastVC: UIViewController {
     
     func setupGestures() {
         let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         forecastCard.handle.addGestureRecognizer(pan)
-//        forecastCard.handle.addGestureRecognizer(tap)
+        forecastCard.handle.addGestureRecognizer(tap)
     }
+}
 
-    
+// MARK: - Gesture Animations
+
+extension ForecastVC {
     @objc func handlePan(sender: UIPanGestureRecognizer) {
         switch sender.state {
-        case .began:
-            startTransition(duration: 0.9)
+        case .began: startTransition(duration: 0.9)
         case .changed:
             let translation = sender.translation(in: forecastCard.handle)
             var fracCompleted = translation.y / cardHgt
             fracCompleted = cardExpanded ? fracCompleted : -fracCompleted
             updateTransiation(progress: fracCompleted)
-        case .ended:
-            continueTransition()
+        case .ended: continueTransition()
         default: break
         }
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
-        
+        switch sender.state {
+        case .ended: animateTransition(duration: 0.9)
+        default: break
+        }
     }
     
     func animateTransition(duration: TimeInterval) {
         guard animations.isEmpty else { return }
-        let hgtOffset = cardExpanded ? cardHgt : handleHgt
+        let hgtOffset = cardExpanded ? handleHgt : cardHgt
         let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
             self.forecastCard.view.frame.origin.y = self.view.frame.height - hgtOffset
         }
