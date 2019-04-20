@@ -12,7 +12,7 @@ class ForecastVM {
     
     let service: WeatherService
     let cityID: Int
-    var data: DailyWeather?
+    var data: DailyWeather!
     
     init(_ service: WeatherService, cityID: Int) {
         self.service = service
@@ -26,5 +26,9 @@ class ForecastVM {
             } else { completion(error) }
             
         }
+    }
+    
+    func weather(at index: Int) -> Forecast {
+        return data[index]
     }
 }
