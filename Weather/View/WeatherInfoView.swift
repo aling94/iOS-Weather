@@ -15,7 +15,10 @@ class WeatherInfoView: UIView {
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var wind: UILabel!
     @IBOutlet weak var hiLow: UILabel!
+    @IBOutlet weak var high: UILabel!
+    @IBOutlet weak var low: UILabel!
     @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var day: UILabel!
     
     func set(_ data: CurrentWeather) {
         temp?.text = data.temp.current
@@ -28,6 +31,10 @@ class WeatherInfoView: UIView {
     
     func set(_ data: Forecast) {
         hiLow?.text = data.temp.highLow
+        high?.text = data.temp.high
+        low?.text = data.temp.low
+        day?.text = data.day
+        state?.text = data.info[0].state
         if let iconName = data.info.first?.icon, let image = UIImage(named: iconName) {
             icon.image = image
         }
