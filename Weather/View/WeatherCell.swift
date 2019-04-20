@@ -8,7 +8,17 @@
 
 import UIKit
 
+
+let orangeDark = 0xf8a346
+let orangeLite =  0xffe676
+let silverDark = 0xaab3cc
+let silverLite = 0xdde9fa
+let grayDark =  0xaaaaaa
+let grayLite = 0xededed
+
 class WeatherCell: UITableViewCell {
+    
+    
 
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var icon: UIImageView!
@@ -18,7 +28,8 @@ class WeatherCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        container.setGradientBackground()
+        selectionStyle = .none
+        container.setGradientBackground(orangeDark, orangeLite)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
