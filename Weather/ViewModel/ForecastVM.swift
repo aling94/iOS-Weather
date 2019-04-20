@@ -23,6 +23,7 @@ class ForecastVM {
         service.fetchData(cityID: current.cityID, type: .daily) { (results: DailyWeather?, error) in
             if let results = results {
                 self.data = results
+                completion(nil)
             } else { completion(error) }
             
         }
