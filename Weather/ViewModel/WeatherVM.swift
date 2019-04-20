@@ -66,6 +66,4 @@ class WeatherVM {
     func weather(at index: Int) -> CurrentWeather {
         return data[index]
     }
-    
-    
 }

@@ -11,16 +11,16 @@ import Foundation
 class ForecastVM {
     
     let service: WeatherService
-    let cityID: Int
+    let current: CurrentWeather
     var data: DailyWeather!
     
-    init(_ service: WeatherService, cityID: Int) {
+    init(_ service: WeatherService, current: CurrentWeather) {
         self.service = service
-        self.cityID = cityID
+        self.current = current
     }
     
     func fetchForecasts(completion: @escaping (Error?) -> Void) {
-        service.fetchData(cityID: cityID, type: .daily) { (results: DailyWeather?, error) in
+        service.fetchData(cityID: current.cityID, type: .daily) { (results: DailyWeather?, error) in
             if let results = results {
                 self.data = results
             } else { completion(error) }
