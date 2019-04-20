@@ -8,7 +8,7 @@
 
 import GooglePlaces
 
-class GMSPlacePicker: GMSAutocompleteViewController, GMSAutocompleteViewControllerDelegate {
+class GMSPlacePicker: GMSAutocompleteViewController {
     
     var selectPlaceAction: ((GMSPlace) -> Void)?
     
@@ -24,7 +24,9 @@ class GMSPlacePicker: GMSAutocompleteViewController, GMSAutocompleteViewControll
         filter.type = .city
         autocompleteFilter = filter
     }
-    
+}
+
+extension GMSPlacePicker: GMSAutocompleteViewControllerDelegate {
     
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         selectPlaceAction?(place)
