@@ -24,3 +24,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 let app = UIApplication.shared.delegate as! AppDelegate
+var usingMetric = true

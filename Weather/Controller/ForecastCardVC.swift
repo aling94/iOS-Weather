@@ -26,10 +26,7 @@ class ForecastCardVC: UIViewController {
     
     func setupWeatherInfo() {
         guard let vm = forecastVM else { return }
-        todayInfo.set(vm.weather(at: 0))
-        tmrwInfo.set(vm.weather(at: 1))
+        todayInfo.set(vm.avgWeather(day: 0))
+        tmrwInfo.set(vm.avgWeather(day: 1))
     }
-    
-    
-    
 }

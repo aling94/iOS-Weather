@@ -28,8 +28,12 @@ class ForecastVM {
             
         }
     }
+
+    func avgWeather(day: Int) -> Forecast {
+        return data[day]
+    }
     
-    func weather(at index: Int) -> Forecast {
-        return data[index]
+    func weather(day: Int, interval: Int) -> Forecast {
+        return data[day, interval]
     }
 }
