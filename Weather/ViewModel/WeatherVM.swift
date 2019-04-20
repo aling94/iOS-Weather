@@ -31,7 +31,10 @@ class WeatherVM {
     
     // Get a city by coordinate and add it to the list
     func getCity(_ place: GMSPlace, completion: @escaping (Error?) -> Void) {
-        guard let id = place.placeID, !placeIDs.contains(id) else { return }
+        guard let id = place.placeID, !placeIDs.contains(id) else {
+            completion(ServiceError.alreadyAdded)
+            return
+        }
         let loc = place.coordinate
         service.fetchData(lat: loc.latitude, lon: loc.longitude, type: .current) { (results: CurrentWeather?, error) in
             if let results = results {
