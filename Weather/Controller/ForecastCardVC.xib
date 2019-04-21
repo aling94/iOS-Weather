@@ -150,10 +150,10 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UF6-ta-wYZ" userLabel="Content">
-                    <rect key="frame" x="0.0" y="176" width="375" height="260"/>
+                    <rect key="frame" x="0.0" y="176" width="375" height="245"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-Dj-A6W">
-                            <rect key="frame" x="0.0" y="30" width="375" height="210"/>
+                            <rect key="frame" x="0.0" y="15" width="375" height="210"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="210" id="KB2-Yk-SaU"/>
@@ -174,7 +174,7 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="S4b-Dj-A6W" secondAttribute="bottom" constant="20" id="1qV-an-KYx"/>
                         <constraint firstItem="S4b-Dj-A6W" firstAttribute="leading" secondItem="UF6-ta-wYZ" secondAttribute="leading" id="2xn-HH-V0l"/>
-                        <constraint firstItem="S4b-Dj-A6W" firstAttribute="top" secondItem="UF6-ta-wYZ" secondAttribute="top" constant="30" id="m36-UY-45N"/>
+                        <constraint firstItem="S4b-Dj-A6W" firstAttribute="top" secondItem="UF6-ta-wYZ" secondAttribute="top" constant="15" id="m36-UY-45N"/>
                         <constraint firstAttribute="trailing" secondItem="S4b-Dj-A6W" secondAttribute="trailing" id="pBc-1f-Tbl"/>
                     </constraints>
                 </view>
