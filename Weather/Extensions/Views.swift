@@ -63,6 +63,13 @@ extension UIColor {
             blue: rgb & 0xFF
         )
     }
+    
+    static var darkOrange: UIColor { return UIColor(rgb: 0xf8a346) }
+    static var liteOrange: UIColor { return UIColor(rgb: 0xffe676) }
+    static var darkSilver: UIColor { return UIColor(rgb: 0xaab3cc) }
+    static var liteSilver: UIColor { return UIColor(rgb: 0xdde9fa) }
+    static var darkGray: UIColor { return UIColor(rgb: 0xaaaaaa) }
+    static var liteGray: UIColor { return UIColor(rgb: 0xededed) }
 }
 
 extension UITableView {

@@ -30,7 +30,7 @@ class WeatherCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        container.setGradientBackground(orangeDark, orangeLite)
+        container.setGradientBackground(.darkOrange, .liteOrange)
         if addBtn != nil {
             container.cornerRadius = container.frame.height / 2
         }
