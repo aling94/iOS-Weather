@@ -91,4 +91,17 @@ extension WeatherListVC: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section != 1   
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            weatherVM.deleteCity(at: indexPath.row)
+            table.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            table.endUpdates()
+        }
+    }
 }

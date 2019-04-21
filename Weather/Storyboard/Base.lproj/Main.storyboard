@@ -33,7 +33,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5w-cp-psG" userLabel="Wrapper">
-                                                    <rect key="frame" x="0.0" y="15" width="414" height="130"/>
+                                                    <rect key="frame" x="0.0" y="10" width="414" height="130"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RPn-X4-WbU" userLabel="Icon">
                                                             <rect key="frame" x="294" y="25" width="80" height="80"/>
@@ -49,7 +49,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25 C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehX-Sp-dKd" userLabel="low">
-                                                            <rect key="frame" x="119.66666666666667" y="79.666666666666671" width="33.666666666666671" height="21.666666666666671"/>
+                                                            <rect key="frame" x="119.66666666666667" y="79.666666666666657" width="33.666666666666671" height="21.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -79,7 +79,7 @@
                                             <constraints>
                                                 <constraint firstItem="i5w-cp-psG" firstAttribute="leading" secondItem="r4H-0I-1o6" secondAttribute="leading" id="5o9-50-BF7"/>
                                                 <constraint firstAttribute="trailing" secondItem="i5w-cp-psG" secondAttribute="trailing" id="AzL-hS-CBM"/>
-                                                <constraint firstItem="i5w-cp-psG" firstAttribute="top" secondItem="r4H-0I-1o6" secondAttribute="top" constant="15" id="dtU-eo-3ox"/>
+                                                <constraint firstItem="i5w-cp-psG" firstAttribute="top" secondItem="r4H-0I-1o6" secondAttribute="top" constant="10" id="dtU-eo-3ox"/>
                                                 <constraint firstAttribute="bottom" secondItem="i5w-cp-psG" secondAttribute="bottom" id="qNe-WW-PeR"/>
                                             </constraints>
                                         </tableViewCellContentView>

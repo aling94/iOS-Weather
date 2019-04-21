@@ -21,12 +21,21 @@ class WeatherVM {
     
     init(_ service: WeatherService) {
         self.service = service
+        getSavedCities()
+    }
+    
+    private func getSavedCities() {
         if let cities = UserDefaults.standard.value(forKey: "cities") as? [Int] {
             cityIDs = cities
         }
         if let places = UserDefaults.standard.value(forKey: "places") as? [String] {
             placeIDs = places
         }
+    }
+    
+    private func saveCities() {
+        UserDefaults.standard.set(cityIDs, forKey: "cities")
+        UserDefaults.standard.set(placeIDs, forKey: "places")
     }
     
     // Get a city by coordinate and add it to the list
@@ -41,8 +50,7 @@ class WeatherVM {
                 self.data.append(results)
                 self.cityIDs.append(results.cityID)
                 self.placeIDs.append(id)
-                UserDefaults.standard.set(self.cityIDs, forKey: "cities")
-                UserDefaults.standard.set(self.placeIDs, forKey: "places")
+                self.saveCities()
                 completion(nil)
             } else { completion(error) }
         }
@@ -57,6 +65,13 @@ class WeatherVM {
                 completion(nil)
             } else { completion(error) }
         }
+    }
+    
+    func deleteCity(at index: Int) {
+        data.remove(at: index)
+        cityIDs.remove(at: index)
+        placeIDs.remove(at: index)
+        saveCities()
     }
     
     func weather(at indexPath: IndexPath) -> CurrentWeather {
