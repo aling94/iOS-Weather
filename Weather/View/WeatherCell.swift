@@ -8,14 +8,6 @@
 
 import UIKit
 
-
-let orangeDark = 0xf8a346
-let orangeLite =  0xffe676
-let silverDark = 0xaab3cc
-let silverLite = 0xdde9fa
-let grayDark =  0xaaaaaa
-let grayLite = 0xededed
-
 class WeatherCell: UITableViewCell {
     
     

@@ -13,7 +13,7 @@ class WeatherCollectionCell: UICollectionViewCell {
     @IBOutlet weak var info: WeatherInfoView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        info.setGradientBackground(orangeDark, orangeLite)
+        info.setGradientBackground(.darkBlue, .liteBlue)
     }
 
 }
