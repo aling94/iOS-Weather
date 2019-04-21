@@ -20,6 +20,7 @@ class WeatherCell: UITableViewCell {
     
     
 
+    @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var hiTemp: UILabel!
@@ -30,6 +31,9 @@ class WeatherCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         container.setGradientBackground(orangeDark, orangeLite)
+        if addBtn != nil {
+            container.cornerRadius = container.frame.height / 2
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
