@@ -57,6 +57,6 @@ extension ForecastCardVC: UICollectionViewDataSource {
 
 extension ForecastCardVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 155, height: 200)
+        return CGSize(width: 155, height: 190)
     }
 }
