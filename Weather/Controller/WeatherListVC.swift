@@ -14,17 +14,18 @@ class WeatherListVC: UIViewController {
     @IBOutlet weak var table: UITableView!
     
     let weatherVM = WeatherVM(WeatherService.shared)
-    let placePicker = GMSPlacePicker()
+    var placePicker: GMSPlacePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
         table.tableFooterView = UIView()
         setupPlacePicker()
         loadSavedCities()
     }
     
     func setupPlacePicker() {
-        placePicker.selectPlaceAction = { [unowned self] in self.addCity($0) }
+        
     }
     
     func loadSavedCities() {
@@ -51,7 +52,9 @@ class WeatherListVC: UIViewController {
         }
     }
     
-    @IBAction func addCityClicked(sender: Any) {
+    @objc func showPlaces() {
+        placePicker = GMSPlacePicker()
+        placePicker.selectPlaceAction = { [unowned self] in self.addCity($0) }
         present(placePicker, animated: true)
     }
     
@@ -66,16 +69,26 @@ class WeatherListVC: UIViewController {
 
 extension WeatherListVC: UITableViewDataSource, UITableViewDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weatherVM.numOfCities
+        return section == 0 ? weatherVM.numOfCities : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? WeatherCell else {
+        let id = indexPath.section == 0 ? "Cell" : "ButtonCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: id) as? WeatherCell else {
             return UITableViewCell()
         }
-        let data = weatherVM.weather(at: indexPath)
-        cell.set(data)
+        if indexPath.section == 0 {
+            let data = weatherVM.weather(at: indexPath)
+            cell.set(data)
+        } else {
+            cell.addBtn.addTarget(self, action: #selector(showPlaces), for: .touchUpInside)
+        }
+        
         return cell
     }
 }
