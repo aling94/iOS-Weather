@@ -12,6 +12,7 @@ import GooglePlaces
 class WeatherListVC: UIViewController {
 
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var addCityBtn: UIButton!
     
     let weatherVM = WeatherVM(WeatherService.shared)
     var placePicker: GMSPlacePicker!
@@ -20,6 +21,7 @@ class WeatherListVC: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         table.tableFooterView = UIView()
+        addCityBtn.addTarget(self, action: #selector(showPlaces), for: .touchUpInside)
         loadSavedCities()
     }
 
@@ -43,7 +45,9 @@ class WeatherListVC: UIViewController {
                 return
             }
             DispatchQueue.main.async {
-                self.table.appendToEnd(section: 0)
+                if self.weatherVM.numOfCities == 1 {
+                    self.table.appendToEnd(sections: [0, 1])
+                } else { self.table.appendToEnd(sections: [0]) }
             }
         }
     }
@@ -65,11 +69,15 @@ class WeatherListVC: UIViewController {
 
 extension WeatherListVC: UITableViewDataSource, UITableViewDelegate {
     
+    var noCities: Bool { return weatherVM.numOfCities == 0 }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        addCityBtn.isHidden = !noCities
+        if noCities { return 0 }
         return section == 0 ? weatherVM.numOfCities : 1
     }
     
@@ -97,6 +105,7 @@ extension WeatherListVC: UITableViewDataSource, UITableViewDelegate {
             weatherVM.deleteCity(at: indexPath.row)
             table.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            if noCities { tableView.deleteRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)}
             table.endUpdates()
         }
     }

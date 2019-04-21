@@ -76,10 +76,10 @@ extension UIColor {
 
 extension UITableView {
     
-    func appendToEnd(section: Int) {
-        let lastRow = numberOfRows(inSection: section)
+    func appendToEnd(sections: [Int]) {
+        let idps = sections.map { IndexPath(row: self.numberOfRows(inSection: $0), section: $0) }
         beginUpdates()
-        insertRows(at: [IndexPath(row: lastRow, section: section)], with: .right)
+        insertRows(at: idps, with: .right)
         endUpdates()
     }
 }

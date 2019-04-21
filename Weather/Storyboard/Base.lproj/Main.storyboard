@@ -141,6 +141,22 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="sHe-c5-Wv3"/>
                                 </connections>
                             </tableView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ap5-53-Pek">
+                                <rect key="frame" x="132" y="355.66666666666669" width="150" height="45"/>
+                                <color key="backgroundColor" red="1" green="0.68731337749999999" blue="0.1559075862" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="hUD-Jp-iV0"/>
+                                    <constraint firstAttribute="height" constant="45" id="kBv-Hs-AWu"/>
+                                </constraints>
+                                <state key="normal" title="Click to add a city">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -148,7 +164,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vUc-I8-2g7" secondAttribute="trailing" id="7fq-2o-8wo"/>
                             <constraint firstAttribute="bottom" secondItem="vUc-I8-2g7" secondAttribute="bottom" id="AFP-Dn-791"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oBD-zE-cSh" secondAttribute="bottom" id="B6B-mW-VqX"/>
+                            <constraint firstItem="Ap5-53-Pek" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E03-Jr-IUS"/>
                             <constraint firstItem="oBD-zE-cSh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IDF-kK-Djw"/>
+                            <constraint firstItem="Ap5-53-Pek" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="UlM-Ld-61v"/>
                             <constraint firstItem="vUc-I8-2g7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Um8-UD-zzk"/>
                             <constraint firstItem="oBD-zE-cSh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="btr-qH-2be"/>
                             <constraint firstItem="vUc-I8-2g7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rlH-12-jD2"/>
@@ -158,6 +176,7 @@
                     <navigationItem key="navigationItem" id="zye-Fe-Lat"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="addCityBtn" destination="Ap5-53-Pek" id="Se9-rF-19o"/>
                         <outlet property="table" destination="oBD-zE-cSh" id="UOA-XW-pi8"/>
                     </connections>
                 </viewController>
