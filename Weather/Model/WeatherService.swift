@@ -80,4 +80,6 @@ enum ServiceError: String, Error {
     case invalidURL = "URL is invalid"
     case parseFailed = "Failed to parse data"
     case alreadyAdded = "You have already added this location"
+    
+    var localizedDescription: String { return self.rawValue }
 }

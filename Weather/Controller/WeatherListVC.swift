@@ -20,14 +20,9 @@ class WeatherListVC: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         table.tableFooterView = UIView()
-        setupPlacePicker()
         loadSavedCities()
     }
-    
-    func setupPlacePicker() {
-        
-    }
-    
+
     func loadSavedCities() {
         weatherVM.loadCities { (error) in
             if let error = error?.localizedDescription {
@@ -42,8 +37,9 @@ class WeatherListVC: UIViewController {
     
     func addCity(_ place: GMSPlace) {
         self.weatherVM.getCity(place) { (error) in
-            if let error = error?.localizedDescription {
-                self.showAlert(title: "Error", msg: error)
+            if let error = error {
+                let msg = (error as? ServiceError)?.localizedDescription ?? error.localizedDescription
+                self.showAlert(title: "Error", msg: msg)
                 return
             }
             DispatchQueue.main.async {
