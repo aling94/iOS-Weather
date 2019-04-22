@@ -59,19 +59,19 @@ struct DailyWeather: Codable {
     
     private func getAvg(day: Int) -> Forecast {
         return self[day, 0]
-//        var avgTemp = 0.0, avgMin = 0.0, avgMax = 0.0
-//        var avgWind = 0.0
-//        for i in 0...7 {
-//            let forecast = self[day, i]
-//            avgTemp += forecast.temp.curr
-//            avgMin += forecast.temp.min
-//            avgMax += forecast.temp.max
-//            avgWind += forecast.wind.speed
-//        }
-//        let temp = Temp(curr: avgTemp / 8.0, min: avgMin / 8.0, max: avgMax / 8.0)
-//        let wind = Wind(speed: avgWind / 8.0)
-//        let mid = self[day, 0]
-//        return Forecast(time: mid.time, temp: temp, info: mid.info, wind: wind, date: mid.date)
+        var avgTemp = 0.0, avgMin = 0.0, avgMax = 0.0
+        var avgWind = 0.0
+        for i in 0...7 {
+            let forecast = self[day, i]
+            avgTemp += forecast.temp.curr
+            avgMin += forecast.temp.min
+            avgMax += forecast.temp.max
+            avgWind += forecast.wind.speed
+        }
+        let temp = Temp(curr: avgTemp / 8.0, min: avgMin / 8.0, max: avgMax / 8.0)
+        let wind = Wind(speed: avgWind / 8.0)
+        let mid = self[day, 0]
+        return Forecast(time: mid.time, temp: temp, info: mid.info, wind: wind, date: mid.date)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -123,7 +123,6 @@ struct Info: Codable {
     let icon: String
     
     enum CodingKeys: String, CodingKey {
-        
         case state = "main"
         case description, icon
     }

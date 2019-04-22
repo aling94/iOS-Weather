@@ -10,21 +10,17 @@ import UIKit
 
 class WeatherCell: UITableViewCell {
     
-    
-
     @IBOutlet weak var addBtn: UIButton!
-    @IBOutlet weak var container: UIView!
-    @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var hiTemp: UILabel!
-    @IBOutlet weak var loTemp: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var btnView: UIView!
+    @IBOutlet weak var infoView: WeatherInfoView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        container.setGradientBackground(.darkOrange, .liteOrange)
+        infoView?.setGradientBackground(.darkOrange, .liteOrange)
         if addBtn != nil {
-            container.cornerRadius = container.frame.height / 2
+            btnView.setGradientBackground(.darkOrange, .liteOrange)
+            btnView.cornerRadius = btnView.frame.height / 2
         }
     }
 
@@ -33,11 +29,6 @@ class WeatherCell: UITableViewCell {
     }
     
     func set(_ data: CurrentWeather) {
-        cityLabel.text = data.city
-        hiTemp.text = data.temp.high
-        loTemp.text = data.temp.low
-        if let iconName = data.info.first?.icon, let image = UIImage(named: iconName) {
-            icon.image = image
-        }
+        infoView.set(data)
     }
 }

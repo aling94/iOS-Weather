@@ -15,7 +15,6 @@ class WeatherListVC: UIViewController {
     @IBOutlet weak var addCityBtn: UIButton!
     
     let weatherVM = WeatherVM(WeatherService.shared)
-    var placePicker: GMSPlacePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +52,7 @@ class WeatherListVC: UIViewController {
     }
     
     @objc func showPlaces() {
-        placePicker = GMSPlacePicker()
+        let placePicker = GMSPlacePicker()
         placePicker.selectPlaceAction = { [unowned self] in self.addCity($0) }
         present(placePicker, animated: true)
     }
