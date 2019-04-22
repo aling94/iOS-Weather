@@ -15,5 +15,9 @@ class WeatherCollectionCell: UICollectionViewCell {
         super.awakeFromNib()
         info.setGradientBackground(.darkBlue, .liteBlue)
     }
+    
+    func set(_ data: Forecast) {
+        info.set(data)
+    }
 
 }
