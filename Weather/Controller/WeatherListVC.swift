@@ -18,10 +18,15 @@ class WeatherListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
+        makeNavbarClear()
         table.tableFooterView = UIView()
         addCityBtn.addTarget(self, action: #selector(showPlaces), for: .touchUpInside)
         loadSavedCities()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
 
     func loadSavedCities() {
@@ -88,8 +93,11 @@ extension WeatherListVC: UITableViewDataSource, UITableViewDelegate {
         if indexPath.section == 0 {
             let data = weatherVM.weather(at: indexPath)
             cell.set(data)
+            cell.layer.zPosition = 0
         } else {
             cell.addBtn.addTarget(self, action: #selector(showPlaces), for: .touchUpInside)
+            cell.addBtn.bringSubviewToFront(view)
+            cell.layer.zPosition = 1
         }
         
         return cell
@@ -107,5 +115,9 @@ extension WeatherListVC: UITableViewDataSource, UITableViewDelegate {
             if noCities { tableView.deleteRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)}
             table.endUpdates()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
     }
 }

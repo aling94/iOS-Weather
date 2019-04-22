@@ -96,30 +96,31 @@
                                             <segue destination="cBB-6L-nzN" kind="show" id="Ctw-fu-6v6"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonCell" rowHeight="104" id="kwi-OI-ABP" customClass="WeatherCell" customModule="Weather" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="209" width="414" height="104"/>
+                                    <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonCell" rowHeight="79" id="kwi-OI-ABP" customClass="WeatherCell" customModule="Weather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="209" width="414" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kwi-OI-ABP" id="Vm1-Tn-MjB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kwi-OI-ABP" id="Vm1-Tn-MjB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIP-xk-Xg0">
-                                                    <rect key="frame" x="364" y="20" width="30" height="30"/>
+                                                    <rect key="frame" x="344" y="-25" width="50" height="50"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbq-QC-7VR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
                                                             <state key="normal" title="+">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" red="1" green="0.68731337749999999" blue="0.1559075862" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </state>
                                                         </button>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="1" green="0.68731337749999999" blue="0.1559075862" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="Dbq-QC-7VR" firstAttribute="leading" secondItem="bIP-xk-Xg0" secondAttribute="leading" id="70P-Te-gvC"/>
                                                         <constraint firstItem="Dbq-QC-7VR" firstAttribute="top" secondItem="bIP-xk-Xg0" secondAttribute="top" id="DY0-w4-eBZ"/>
-                                                        <constraint firstAttribute="width" constant="30" id="O1D-95-D5B"/>
-                                                        <constraint firstAttribute="height" constant="30" id="Tz3-lF-K6e"/>
+                                                        <constraint firstAttribute="width" constant="50" id="O1D-95-D5B"/>
+                                                        <constraint firstAttribute="height" constant="50" id="Tz3-lF-K6e"/>
                                                         <constraint firstAttribute="trailing" secondItem="Dbq-QC-7VR" secondAttribute="trailing" id="Y14-I1-ThD"/>
                                                         <constraint firstAttribute="bottom" secondItem="Dbq-QC-7VR" secondAttribute="bottom" id="nFq-Rg-9mm"/>
                                                     </constraints>
@@ -128,8 +129,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="bIP-xk-Xg0" secondAttribute="trailing" constant="20" id="AtL-Y6-g75"/>
-                                                <constraint firstAttribute="bottom" secondItem="bIP-xk-Xg0" secondAttribute="bottom" constant="20" id="Qbg-6f-EeJ"/>
-                                                <constraint firstItem="bIP-xk-Xg0" firstAttribute="top" secondItem="Vm1-Tn-MjB" secondAttribute="top" constant="20" symbolic="YES" id="eJg-jb-n4V"/>
+                                                <constraint firstItem="bIP-xk-Xg0" firstAttribute="top" secondItem="Vm1-Tn-MjB" secondAttribute="top" constant="-25" id="YPP-2i-ZBM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

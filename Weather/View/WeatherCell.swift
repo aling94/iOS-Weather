@@ -19,8 +19,11 @@ class WeatherCell: UITableViewCell {
         selectionStyle = .none
         infoView?.setGradientBackground(.darkOrange, .liteOrange)
         if addBtn != nil {
-            btnView.setGradientBackground(.darkOrange, .liteOrange)
-            btnView.cornerRadius = btnView.frame.height / 2
+            
+            addBtn.layer.cornerRadius = addBtn.frame.width / 2
+            addBtn.addShadow()
+//            btnView.setGradientBackground(.darkOrange, .liteOrange)
+//            btnView.cornerRadius = btnView.frame.height / 2
         }
     }
 

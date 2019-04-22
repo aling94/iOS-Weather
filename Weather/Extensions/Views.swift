@@ -74,6 +74,16 @@ extension UIColor {
     static var liteBlue: UIColor { return UIColor(rgb: 0x114b70) }
 }
 
+extension UIButton {
+    func addShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        layer.masksToBounds = false
+        layer.shadowRadius = 2.0
+        layer.shadowOpacity = 0.5
+    }
+}
+
 extension UITableView {
     
     func appendToEnd(sections: [Int]) {

@@ -17,4 +17,13 @@ extension UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func makeNavbarClear() {
+        let navigationBar = navigationController?.navigationBar
+        navigationBar?.setBackgroundImage(UIImage(), for: .default)
+        navigationBar?.shadowImage = UIImage()
+        navigationBar?.isTranslucent = true
+        navigationBar?.tintColor = .white
+        navigationBar?.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+    }
 }
