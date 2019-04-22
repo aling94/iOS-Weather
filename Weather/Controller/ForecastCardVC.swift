@@ -29,7 +29,7 @@ class ForecastCardVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nibName = UINib(nibName: "WeatherCollectionCell", bundle:nil)
+        let nibName = UINib(nibName: "WeatherCollectionCell", bundle: nil)
         collection.register(nibName, forCellWithReuseIdentifier: "Cell")
     }
     
@@ -42,7 +42,7 @@ class ForecastCardVC: UIViewController {
 
 extension ForecastCardVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return forecastVM?.data.averages.count ?? 0
+        return forecastVM?.numOfForecasts ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,7 +50,7 @@ extension ForecastCardVC: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let forecast = forecastVM.avgWeather(day: indexPath.item)
-        cell.info.set(forecast)
+        cell.set(forecast)
         return cell
     }
 }

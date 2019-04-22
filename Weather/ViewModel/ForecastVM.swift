@@ -14,6 +14,10 @@ class ForecastVM {
     let current: CurrentWeather
     var data: DailyWeather!
     
+    var numOfForecasts: Int {
+        return data?.averages.count ?? 0
+    }
+    
     init(_ service: WeatherService, current: CurrentWeather) {
         self.service = service
         self.current = current
@@ -25,7 +29,6 @@ class ForecastVM {
                 self.data = results
                 completion(nil)
             } else { completion(error) }
-            
         }
     }
 
