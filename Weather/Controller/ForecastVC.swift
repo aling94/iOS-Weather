@@ -12,6 +12,8 @@ class ForecastVC: UIViewController {
     
     @IBOutlet weak var currWeather: WeatherInfoView!
     
+    @IBOutlet weak var bgBottom: NSLayoutConstraint!
+    
     var forecastVM: ForecastVM!
     var forecastCard: ForecastCardVC!
     
@@ -51,9 +53,9 @@ class ForecastVC: UIViewController {
         forecastCard = ForecastCardVC(nibName: "ForecastCardVC", bundle: nil)
         addChild(forecastCard)
         view.addSubview(forecastCard.view)
-        handleHgt = forecastCard.handle.frame.height
+        handleHgt = forecastCard.handle.frame.height - 10
         cardHgt = forecastCard.height
-        forecastCard.view.frame = CGRect(x: 0, y: view.frame.height - handleHgt, width: view.frame.width, height: cardHgt + 20)
+        forecastCard.view.frame = CGRect(x: 0, y: view.frame.height - handleHgt, width: view.frame.width, height: cardHgt)
         forecastCard.view.layer.cornerRadius = 8
 //        forecastCard.view.clipsToBounds = true
     }
@@ -123,6 +125,17 @@ extension ForecastVC {
         
         handleAnimator.startAnimation()
         animations.append(handleAnimator)
+        
+        let bgAnimator: UIViewPropertyAnimator = {
+            let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
+                self.bgBottom.constant = self.cardExpanded ? 0 : self.cardHgt
+                self.view.layoutIfNeeded()
+            }
+            return animator
+        }()
+        
+        bgAnimator.startAnimation()
+        animations.append(bgAnimator)
     }
     
     func startTransition(duration: TimeInterval) {

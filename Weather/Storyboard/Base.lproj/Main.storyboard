@@ -401,21 +401,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="tZy-uL-Hh0" firstAttribute="height" secondItem="UIX-wM-X0j" secondAttribute="height" id="1hZ-ok-GI5"/>
                             <constraint firstItem="tZy-uL-Hh0" firstAttribute="leading" secondItem="CE2-2l-5ZL" secondAttribute="leading" id="2dQ-r2-b1W"/>
                             <constraint firstAttribute="bottom" secondItem="tZy-uL-Hh0" secondAttribute="bottom" id="4hS-aS-UyD"/>
                             <constraint firstItem="6th-SB-f5o" firstAttribute="top" secondItem="CE2-2l-5ZL" secondAttribute="top" id="STy-Eu-OrS"/>
-                            <constraint firstItem="tZy-uL-Hh0" firstAttribute="top" secondItem="UIX-wM-X0j" secondAttribute="top" id="b2s-U6-26c"/>
-                            <constraint firstItem="CE2-2l-5ZL" firstAttribute="trailing" secondItem="tZy-uL-Hh0" secondAttribute="trailing" id="boe-B7-iOV"/>
                             <constraint firstItem="Jbx-1c-txO" firstAttribute="top" secondItem="6th-SB-f5o" secondAttribute="bottom" id="gqf-aa-7Mc"/>
                             <constraint firstAttribute="bottom" secondItem="Jbx-1c-txO" secondAttribute="bottom" id="grn-p5-ql6"/>
                             <constraint firstItem="CE2-2l-5ZL" firstAttribute="trailing" secondItem="Jbx-1c-txO" secondAttribute="trailing" id="h1e-Am-4Fk"/>
                             <constraint firstItem="6th-SB-f5o" firstAttribute="leading" secondItem="CE2-2l-5ZL" secondAttribute="leading" id="i7Q-pT-kjD"/>
                             <constraint firstItem="CE2-2l-5ZL" firstAttribute="trailing" secondItem="6th-SB-f5o" secondAttribute="trailing" id="lA8-Fl-pcD"/>
                             <constraint firstItem="Jbx-1c-txO" firstAttribute="leading" secondItem="CE2-2l-5ZL" secondAttribute="leading" id="sIf-c9-0Kn"/>
+                            <constraint firstItem="tZy-uL-Hh0" firstAttribute="width" secondItem="UIX-wM-X0j" secondAttribute="width" id="sdF-BD-UGB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CE2-2l-5ZL"/>
                     </view>
                     <connections>
+                        <outlet property="bgBottom" destination="4hS-aS-UyD" id="EYe-Zp-F8e"/>
                         <outlet property="currWeather" destination="6th-SB-f5o" id="xaO-d2-Kmj"/>
                     </connections>
                 </viewController>
