@@ -11,8 +11,6 @@ import UIKit
 class ForecastVC: UIViewController {
     
     @IBOutlet weak var currWeather: WeatherInfoView!
-    @IBOutlet weak var todayWeather: WeatherInfoView!
-    @IBOutlet weak var tmrwWeather: WeatherInfoView!
     
     var forecastVM: ForecastVM!
     var forecastCard: ForecastCardVC!

@@ -96,7 +96,7 @@
                                             <segue destination="cBB-6L-nzN" kind="show" id="Ctw-fu-6v6"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonCell" rowHeight="104" id="kwi-OI-ABP" customClass="WeatherCell" customModule="Weather" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonCell" rowHeight="104" id="kwi-OI-ABP" customClass="WeatherCell" customModule="Weather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="209" width="414" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kwi-OI-ABP" id="Vm1-Tn-MjB">
@@ -417,8 +417,6 @@
                     </view>
                     <connections>
                         <outlet property="currWeather" destination="6th-SB-f5o" id="xaO-d2-Kmj"/>
-                        <outlet property="tmrwWeather" destination="bSV-zO-OEh" id="ism-rw-77C"/>
-                        <outlet property="todayWeather" destination="JDe-hV-Qjb" id="jOD-Dc-usG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gn-yd-A26" userLabel="First Responder" sceneMemberID="firstResponder"/>
