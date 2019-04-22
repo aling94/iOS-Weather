@@ -196,7 +196,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg2" translatesAutoresizingMaskIntoConstraints="NO" id="tZy-uL-Hh0">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="726"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbx-1c-txO" userLabel="Daily Wrapper">
@@ -402,7 +402,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tZy-uL-Hh0" firstAttribute="leading" secondItem="CE2-2l-5ZL" secondAttribute="leading" id="2dQ-r2-b1W"/>
-                            <constraint firstAttribute="bottom" secondItem="tZy-uL-Hh0" secondAttribute="bottom" constant="10" id="4hS-aS-UyD"/>
+                            <constraint firstAttribute="bottom" secondItem="tZy-uL-Hh0" secondAttribute="bottom" id="4hS-aS-UyD"/>
                             <constraint firstItem="6th-SB-f5o" firstAttribute="top" secondItem="CE2-2l-5ZL" secondAttribute="top" id="STy-Eu-OrS"/>
                             <constraint firstItem="tZy-uL-Hh0" firstAttribute="top" secondItem="UIX-wM-X0j" secondAttribute="top" id="b2s-U6-26c"/>
                             <constraint firstItem="CE2-2l-5ZL" firstAttribute="trailing" secondItem="tZy-uL-Hh0" secondAttribute="trailing" id="boe-B7-iOV"/>

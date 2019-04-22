@@ -16,6 +16,10 @@ class ForecastCardVC: UIViewController {
     @IBOutlet weak var content: UIView!
     @IBOutlet weak var collection: UICollectionView!
     
+    @IBOutlet weak var handleTop: NSLayoutConstraint!
+    @IBOutlet weak var handleLead: NSLayoutConstraint!
+    @IBOutlet weak var handleTrail: NSLayoutConstraint!
+    
     var height: CGFloat {
         return (handle?.frame.height ?? 0) + (content?.frame.height ?? 0)
     }
@@ -31,12 +35,28 @@ class ForecastCardVC: UIViewController {
         super.viewDidLoad()
         let nibName = UINib(nibName: "WeatherCollectionCell", bundle: nil)
         collection.register(nibName, forCellWithReuseIdentifier: "Cell")
+        handle.setGradientBackground(.darkOrange, .liteOrange)
     }
     
     func setupWeatherInfo() {
         guard let vm = forecastVM else { return }
         todayInfo.set(vm.avgWeather(day: 0))
         tmrwInfo.set(vm.avgWeather(day: 1))
+    }
+    
+    func shiftHandleUp(by amount: CGFloat) {
+        handleTop.constant = -amount
+    }
+    
+    func shrinkHandle(by amount: CGFloat) {
+        handleLead.constant = amount
+        handleTrail.constant = -amount
+    }
+    
+    func resetHandle() {
+        handleTop.constant = 0
+        handleLead.constant = 0
+        handleTrail.constant = 0
     }
 }
 
