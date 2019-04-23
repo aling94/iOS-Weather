@@ -60,7 +60,6 @@ class ForecastVC: UIViewController {
         cardHgt = forecastCard.height
         forecastCard.view.frame = CGRect(x: 0, y: view.frame.height - handleHgt, width: view.frame.width, height: cardHgt)
         forecastCard.view.layer.cornerRadius = 8
-//        forecastCard.view.clipsToBounds = true
     }
     
     func setupGestures() {
