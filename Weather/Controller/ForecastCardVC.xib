@@ -28,6 +28,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wXw-Kl-DVW">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lk0-bo-YD7" userLabel="Handle">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="176"/>
                     <subviews>
@@ -157,7 +166,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UF6-ta-wYZ" userLabel="Content">
-                    <rect key="frame" x="0.0" y="176" width="375" height="245"/>
+                    <rect key="frame" x="0.0" y="176" width="375" height="235"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-Dj-A6W">
                             <rect key="frame" x="0.0" y="15" width="375" height="210"/>
@@ -177,9 +186,9 @@
                             </connections>
                         </collectionView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="S4b-Dj-A6W" secondAttribute="bottom" constant="20" id="1qV-an-KYx"/>
+                        <constraint firstAttribute="bottom" secondItem="S4b-Dj-A6W" secondAttribute="bottom" constant="10" id="1qV-an-KYx"/>
                         <constraint firstItem="S4b-Dj-A6W" firstAttribute="leading" secondItem="UF6-ta-wYZ" secondAttribute="leading" id="2xn-HH-V0l"/>
                         <constraint firstItem="S4b-Dj-A6W" firstAttribute="top" secondItem="UF6-ta-wYZ" secondAttribute="top" constant="15" id="m36-UY-45N"/>
                         <constraint firstAttribute="trailing" secondItem="S4b-Dj-A6W" secondAttribute="trailing" id="pBc-1f-Tbl"/>
@@ -190,7 +199,11 @@
             <constraints>
                 <constraint firstItem="lk0-bo-YD7" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="1lV-2I-Nv7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UF6-ta-wYZ" secondAttribute="trailing" id="3ID-KD-8G8"/>
+                <constraint firstItem="wXw-Kl-DVW" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="CSL-g0-EzY"/>
+                <constraint firstItem="wXw-Kl-DVW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KOB-Zo-lhn"/>
                 <constraint firstItem="lk0-bo-YD7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MO6-mO-qzQ"/>
+                <constraint firstItem="wXw-Kl-DVW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Sng-ik-mdK"/>
+                <constraint firstItem="wXw-Kl-DVW" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="oDk-n7-q9b"/>
                 <constraint firstItem="UF6-ta-wYZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uQN-8W-Rde"/>
                 <constraint firstItem="lk0-bo-YD7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yac-UU-N4u"/>
                 <constraint firstItem="UF6-ta-wYZ" firstAttribute="top" secondItem="lk0-bo-YD7" secondAttribute="bottom" id="yeR-Va-rNV"/>

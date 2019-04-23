@@ -176,7 +176,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zye-Fe-Lat"/>
+                    <navigationItem key="navigationItem" id="zye-Fe-Lat">
+                        <barButtonItem key="backBarButtonItem" title=" " id="c3O-2n-EaB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="addCityBtn" destination="Ap5-53-Pek" id="Se9-rF-19o"/>
                         <outlet property="table" destination="oBD-zE-cSh" id="UOA-XW-pi8"/>
