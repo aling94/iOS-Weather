@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oBD-zE-cSh">
-                                <rect key="frame" x="0.0" y="40" width="414" height="696"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="652"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="181" id="3pG-xA-QbL" customClass="WeatherCell" customModule="Weather" customModuleProvider="target">
@@ -145,7 +145,7 @@
                                 </connections>
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ap5-53-Pek">
-                                <rect key="frame" x="132" y="355.66666666666669" width="150" height="45"/>
+                                <rect key="frame" x="132" y="377.66666666666669" width="150" height="45"/>
                                 <color key="backgroundColor" red="1" green="0.68731337749999999" blue="0.1559075862" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="hUD-Jp-iV0"/>
@@ -177,7 +177,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="zye-Fe-Lat"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="addCityBtn" destination="Ap5-53-Pek" id="Se9-rF-19o"/>
                         <outlet property="table" destination="oBD-zE-cSh" id="UOA-XW-pi8"/>
@@ -323,40 +322,40 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6th-SB-f5o" customClass="WeatherInfoView" customModule="Weather" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="414" height="540"/>
+                                <rect key="frame" x="0.0" y="301.66666666666674" width="414" height="258.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Er-pH-DDE" userLabel="Temp">
-                                        <rect key="frame" x="40" y="291.66666666666669" width="334" height="96"/>
+                                        <rect key="frame" x="40" y="10" width="334" height="96"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="80"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seoul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kt1-sG-lLL" userLabel="City Name">
-                                        <rect key="frame" x="40" y="418.66666666666669" width="39.666666666666657" height="19.333333333333314"/>
+                                        <rect key="frame" x="40" y="137" width="39.666666666666657" height="19.333333333333343"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32/25 C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrq-wu-MfY" userLabel="HiLow Temp">
-                                        <rect key="frame" x="205" y="455.66666666666669" width="53.666666666666686" height="19"/>
+                                        <rect key="frame" x="205" y="174" width="53.666666666666686" height="19"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 m/s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vp7-wX-sbr">
-                                        <rect key="frame" x="78" y="455.66666666666669" width="47" height="19"/>
+                                        <rect key="frame" x="78" y="174" width="47" height="19"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rR5-cM-SHM" userLabel="Weather State">
-                                        <rect key="frame" x="40.000000000000007" y="387.66666666666669" width="66.666666666666686" height="31"/>
+                                        <rect key="frame" x="40.000000000000007" y="106" width="66.666666666666686" height="31"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wind" translatesAutoresizingMaskIntoConstraints="NO" id="iK1-UD-USB">
-                                        <rect key="frame" x="40" y="450" width="30" height="30"/>
+                                        <rect key="frame" x="40" y="168.33333333333331" width="30" height="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="YYC-Uv-xa7"/>
@@ -364,7 +363,7 @@
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="SGh-qf-0BL">
-                                        <rect key="frame" x="167" y="450" width="30" height="30"/>
+                                        <rect key="frame" x="167" y="168.33333333333331" width="30" height="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ayb-iw-7Yb"/>
@@ -380,6 +379,7 @@
                                     <constraint firstAttribute="bottom" secondItem="iK1-UD-USB" secondAttribute="bottom" constant="60" id="FNl-5D-RKk"/>
                                     <constraint firstItem="Nrq-wu-MfY" firstAttribute="leading" secondItem="SGh-qf-0BL" secondAttribute="trailing" constant="8" id="JIk-L7-cTP"/>
                                     <constraint firstItem="2Er-pH-DDE" firstAttribute="leading" secondItem="6th-SB-f5o" secondAttribute="leading" constant="40" id="Q3A-5z-b8r"/>
+                                    <constraint firstItem="2Er-pH-DDE" firstAttribute="top" secondItem="6th-SB-f5o" secondAttribute="top" constant="10" id="VRG-ws-w5S"/>
                                     <constraint firstItem="iK1-UD-USB" firstAttribute="top" secondItem="Kt1-sG-lLL" secondAttribute="bottom" constant="12" id="cpp-ew-cvk"/>
                                     <constraint firstItem="vp7-wX-sbr" firstAttribute="leading" secondItem="iK1-UD-USB" secondAttribute="trailing" constant="8" id="oQq-cx-WMO"/>
                                     <constraint firstItem="SGh-qf-0BL" firstAttribute="centerY" secondItem="iK1-UD-USB" secondAttribute="centerY" id="otM-M0-iDq"/>
@@ -398,18 +398,79 @@
                                     <outlet property="wind" destination="vp7-wX-sbr" id="rcm-w9-rCb"/>
                                 </connections>
                             </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BlE-vb-OmV" userLabel="Overhead Info" customClass="WeatherInfoView" customModule="Weather" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="-82" width="414" height="82"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STU-3k-b8m" userLabel="Temp">
+                                        <rect key="frame" x="70" y="20" width="48" height="30"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seoul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSP-zT-IZu" userLabel="City Name">
+                                        <rect key="frame" x="354.33333333333331" y="40.333333333333336" width="39.666666666666686" height="19.333333333333336"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dB-i2-0yN" userLabel="Weather State">
+                                        <rect key="frame" x="70" y="50" width="44" height="22"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t9P-aj-b1z">
+                                        <rect key="frame" x="20" y="30" width="40" height="40"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="6Gv-hK-46d"/>
+                                            <constraint firstAttribute="height" constant="40" id="lJJ-t9-Hry"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loc" translatesAutoresizingMaskIntoConstraints="NO" id="uLa-0l-NhI">
+                                        <rect key="frame" x="329.33333333333331" y="40" width="20" height="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="bl4-3E-YGn"/>
+                                            <constraint firstAttribute="width" constant="20" id="zRQ-Z0-TWa"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0dB-i2-0yN" secondAttribute="bottom" constant="10" id="3pd-Ni-TaG"/>
+                                    <constraint firstItem="uLa-0l-NhI" firstAttribute="centerY" secondItem="rSP-zT-IZu" secondAttribute="centerY" id="6Aq-N3-OzF"/>
+                                    <constraint firstItem="0dB-i2-0yN" firstAttribute="top" secondItem="STU-3k-b8m" secondAttribute="bottom" id="6zY-BA-Brz"/>
+                                    <constraint firstItem="rSP-zT-IZu" firstAttribute="leading" secondItem="uLa-0l-NhI" secondAttribute="trailing" constant="5" id="7fr-Or-T8E"/>
+                                    <constraint firstItem="STU-3k-b8m" firstAttribute="leading" secondItem="t9P-aj-b1z" secondAttribute="trailing" constant="10" id="A3a-hl-MwF"/>
+                                    <constraint firstItem="t9P-aj-b1z" firstAttribute="leading" secondItem="BlE-vb-OmV" secondAttribute="leading" constant="20" id="OrI-H5-gGO"/>
+                                    <constraint firstAttribute="trailing" secondItem="rSP-zT-IZu" secondAttribute="trailing" constant="20" id="Ts0-Md-EB7"/>
+                                    <constraint firstItem="t9P-aj-b1z" firstAttribute="centerY" secondItem="STU-3k-b8m" secondAttribute="bottom" id="aVO-eW-GOF"/>
+                                    <constraint firstItem="0dB-i2-0yN" firstAttribute="leading" secondItem="STU-3k-b8m" secondAttribute="leading" id="i3W-KJ-zgS"/>
+                                    <constraint firstItem="STU-3k-b8m" firstAttribute="top" secondItem="BlE-vb-OmV" secondAttribute="top" constant="20" id="nLF-pA-tgW"/>
+                                    <constraint firstItem="rSP-zT-IZu" firstAttribute="centerY" secondItem="t9P-aj-b1z" secondAttribute="centerY" id="oaX-0G-ybA"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="cityName" destination="rSP-zT-IZu" id="9uU-zR-5rx"/>
+                                    <outlet property="currTemp" destination="STU-3k-b8m" id="JWq-4N-VOf"/>
+                                    <outlet property="icon" destination="t9P-aj-b1z" id="rtS-lx-tVs"/>
+                                    <outlet property="state" destination="0dB-i2-0yN" id="nHz-y1-p9n"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tZy-uL-Hh0" firstAttribute="height" secondItem="UIX-wM-X0j" secondAttribute="height" id="1hZ-ok-GI5"/>
                             <constraint firstItem="tZy-uL-Hh0" firstAttribute="leading" secondItem="CE2-2l-5ZL" secondAttribute="leading" id="2dQ-r2-b1W"/>
                             <constraint firstAttribute="bottom" secondItem="tZy-uL-Hh0" secondAttribute="bottom" id="4hS-aS-UyD"/>
-                            <constraint firstItem="6th-SB-f5o" firstAttribute="top" secondItem="CE2-2l-5ZL" secondAttribute="top" id="STy-Eu-OrS"/>
                             <constraint firstItem="Jbx-1c-txO" firstAttribute="top" secondItem="6th-SB-f5o" secondAttribute="bottom" id="gqf-aa-7Mc"/>
                             <constraint firstAttribute="bottom" secondItem="Jbx-1c-txO" secondAttribute="bottom" id="grn-p5-ql6"/>
                             <constraint firstItem="CE2-2l-5ZL" firstAttribute="trailing" secondItem="Jbx-1c-txO" secondAttribute="trailing" id="h1e-Am-4Fk"/>
                             <constraint firstItem="6th-SB-f5o" firstAttribute="leading" secondItem="CE2-2l-5ZL" secondAttribute="leading" id="i7Q-pT-kjD"/>
                             <constraint firstItem="CE2-2l-5ZL" firstAttribute="trailing" secondItem="6th-SB-f5o" secondAttribute="trailing" id="lA8-Fl-pcD"/>
+                            <constraint firstItem="BlE-vb-OmV" firstAttribute="trailing" secondItem="CE2-2l-5ZL" secondAttribute="trailing" id="nTJ-Ld-usK"/>
+                            <constraint firstItem="BlE-vb-OmV" firstAttribute="bottom" secondItem="UIX-wM-X0j" secondAttribute="top" id="nyD-Kj-iVD"/>
+                            <constraint firstItem="BlE-vb-OmV" firstAttribute="leading" secondItem="CE2-2l-5ZL" secondAttribute="leading" id="qbN-l1-k15"/>
                             <constraint firstItem="Jbx-1c-txO" firstAttribute="leading" secondItem="CE2-2l-5ZL" secondAttribute="leading" id="sIf-c9-0Kn"/>
                             <constraint firstItem="tZy-uL-Hh0" firstAttribute="width" secondItem="UIX-wM-X0j" secondAttribute="width" id="sdF-BD-UGB"/>
                         </constraints>
@@ -418,6 +479,8 @@
                     <connections>
                         <outlet property="bgBottom" destination="4hS-aS-UyD" id="EYe-Zp-F8e"/>
                         <outlet property="currWeather" destination="6th-SB-f5o" id="xaO-d2-Kmj"/>
+                        <outlet property="overheadBottom" destination="nyD-Kj-iVD" id="c8r-QS-9cY"/>
+                        <outlet property="overheadWeather" destination="BlE-vb-OmV" id="nDn-Uy-6lx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gn-yd-A26" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -445,6 +508,7 @@
     </scenes>
     <resources>
         <image name="bg2" width="621" height="1344"/>
+        <image name="loc" width="15.5" height="15.5"/>
         <image name="temp" width="24" height="24"/>
         <image name="wind" width="50" height="50"/>
     </resources>

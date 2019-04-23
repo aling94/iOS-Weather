@@ -10,8 +10,10 @@ import UIKit
 
 class ForecastVC: UIViewController {
     
+    @IBOutlet weak var overheadWeather: WeatherInfoView!
     @IBOutlet weak var currWeather: WeatherInfoView!
     
+    @IBOutlet weak var overheadBottom: NSLayoutConstraint!
     @IBOutlet weak var bgBottom: NSLayoutConstraint!
     
     var forecastVM: ForecastVM!
@@ -27,6 +29,7 @@ class ForecastVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currWeather.set(forecastVM.current)
+        overheadWeather.set(forecastVM.current)
         setupCard()
         loadForecasts()
         setupGestures()
@@ -128,7 +131,7 @@ extension ForecastVC {
         
         let bgAnimator: UIViewPropertyAnimator = {
             let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
-                self.bgBottom.constant = self.cardExpanded ? 0 : self.cardHgt
+                self.bgBottom.constant = self.cardExpanded ? 0 : self.cardHgt - 10
                 self.view.layoutIfNeeded()
             }
             return animator
@@ -136,6 +139,19 @@ extension ForecastVC {
         
         bgAnimator.startAnimation()
         animations.append(bgAnimator)
+        
+        let overheadAnimator: UIViewPropertyAnimator = {
+            let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
+                let offset = self.overheadWeather.frame.height + self.navbarHeight + 10
+                self.overheadBottom.constant = self.cardExpanded ? 0 : offset
+                self.overheadWeather.alpha = self.cardExpanded ? 0: 1
+                self.view.layoutIfNeeded()
+            }
+            return animator
+        }()
+        
+        overheadAnimator.startAnimation()
+        animations.append(overheadAnimator)
     }
     
     func startTransition(duration: TimeInterval) {

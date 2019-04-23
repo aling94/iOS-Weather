@@ -10,6 +10,10 @@ import UIKit
 
 extension UIViewController {
     
+    var navbarHeight: CGFloat {
+        return navigationController?.navigationBar.frame.size.height ?? 0
+    }
+    
     func showAlert(title: String, msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
