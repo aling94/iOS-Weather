@@ -19,5 +19,9 @@ class WeatherCollectionCell: UICollectionViewCell {
     func set(_ data: Forecast) {
         info.set(data)
     }
+    
+    func setAlternateDay(_ day: Int) {
+        info.day.text = (day == 0) ? "Today" : "Tomorrow"
+    }
 
 }

@@ -71,6 +71,7 @@ extension ForecastCardVC: UICollectionViewDataSource {
         }
         let forecast = forecastVM.avgWeather(day: indexPath.item)
         cell.set(forecast)
+        if [0, 1].contains(indexPath.row) { cell.setAlternateDay(indexPath.row) }
         return cell
     }
 }
