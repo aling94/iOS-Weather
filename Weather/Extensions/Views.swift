@@ -15,14 +15,14 @@ extension UIView {
     }
     
     func setGradientBackground(_ startColor: UIColor, _ endColor: UIColor = .white) {
-        backgroundColor = .white
+        backgroundColor = .clear
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
         gradientLayer.cornerRadius = layer.cornerRadius
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.frame = frame
         layer.insertSublayer(gradientLayer, at: 0)
     }
     

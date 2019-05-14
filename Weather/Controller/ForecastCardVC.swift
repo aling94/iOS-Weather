@@ -35,7 +35,8 @@ class ForecastCardVC: UIViewController {
         super.viewDidLoad()
         let nibName = UINib(nibName: "WeatherCollectionCell", bundle: nil)
         collection.register(nibName, forCellWithReuseIdentifier: "Cell")
-        handle.setGradientBackground(.darkOrange, .liteOrange)
+//        handle.setGradientBackground(.darkOrange, .liteOrange)
+        handle.backgroundColor = .darkOrange
     }
     
     func setupWeatherInfo() {
